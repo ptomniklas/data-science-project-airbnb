@@ -2,4 +2,7 @@
 .venv/
 __pycache__/
 .ipynb_checkpoints/
+.DS_Store.venv/
+Span-ASTE/.venv/
+__pycache__/
 .DS_Store
