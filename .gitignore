@@ -6,3 +6,12 @@ __pycache__/
 Span-ASTE/.venv/
 __pycache__/
 .DS_Store
+
+# Generated Airbnb analysis data and reports
+data/processed/
+data/analysis/
+data/annotations/*.csv
+data/annotations/*.json
+
+# Keep human-readable annotation docs versionable
+!data/annotations/*.md
