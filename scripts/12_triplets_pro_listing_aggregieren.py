@@ -81,7 +81,7 @@ def aggregate(args: argparse.Namespace) -> Counter:
             )
 
             sentiment = row.get("sentiment", "")
-            topic = row.get("topic_category", "") or "other/unknown"
+            topic = row.get("topic_category", "") or row.get("aspect_category", "") or "other/unknown"
             aspect = row.get("normalized_aspect", "") or row.get("aspect", "") or "unknown"
             review_id = row.get("review_id", "")
             sentence_key = f"{review_id}:{row.get('sentence_id', '')}"

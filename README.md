@@ -517,6 +517,68 @@ python3 scripts/12_triplets_pro_listing_aggregieren.py \
   --summary data/processed/airbnb_aste_listing_aggregation_full_summary.json
 ```
 
+## 50k-Auswertung als Analysegrundlage
+
+Fuer die abschliessende Projektanalyse wurde statt des rechenintensiven
+Full-Runs eine reproduzierbare, listing-stratifizierte 50k-Stichprobe verwendet.
+Diese ist gross genug fuer stabile Tendenzen und verhindert gleichzeitig, dass
+Listings mit sehr vielen Reviews die Auswertung dominieren.
+
+Die Stichprobe wurde aus der Full-Run-Metadatendatei erzeugt:
+
+```bash
+python3 scripts/17_listing_stratifizierte_aste_stichprobe_erstellen.py
+```
+
+Ausgabe-Status der Stichprobe:
+
+- 50.000 Saetze
+- 10.233 Listings
+- maximal 6 Saetze pro Listing in der Stichprobe
+- `Span-ASTE/data_airbnb/airbnb_aste_input_50k_listing_stratified_seed0.txt`
+- `Span-ASTE/data_airbnb/airbnb_aste_input_50k_listing_stratified_seed0_metadata.csv`
+- `Span-ASTE/data_airbnb/airbnb_aste_input_50k_listing_stratified_seed0_summary.json`
+
+Die Prediction wurde mit dem vortrainierten Hauptmodell `pretrained_14res`
+erzeugt und anschliessend geparst, qualitaetsgeprueft und aggregiert:
+
+```bash
+python3 scripts/03_span_aste_ausgabe_parsen.py \
+  --input Span-ASTE/data_airbnb/airbnb_aste_output_50k_listing_stratified_seed0_pretrained_14res.txt \
+  --metadata Span-ASTE/data_airbnb/airbnb_aste_input_50k_listing_stratified_seed0_metadata.csv \
+  --output Span-ASTE/data_airbnb/airbnb_aste_triplets_50k_listing_stratified_seed0_roh.csv \
+  --summary Span-ASTE/data_airbnb/airbnb_aste_triplets_50k_listing_stratified_seed0_roh_summary.json
+
+python3 scripts/04_triplets_qualitaetspruefung.py \
+  --input Span-ASTE/data_airbnb/airbnb_aste_triplets_50k_listing_stratified_seed0_roh.csv \
+  --output Span-ASTE/data_airbnb/airbnb_aste_triplets_50k_listing_stratified_seed0_qc.csv \
+  --clean-output Span-ASTE/data_airbnb/airbnb_aste_triplets_50k_listing_stratified_seed0_clean.csv \
+  --aspect-rules Span-ASTE/data_airbnb/airbnb_aste_aspekt_regeln_50k_listing_stratified_seed0.csv \
+  --summary Span-ASTE/data_airbnb/airbnb_aste_triplets_50k_listing_stratified_seed0_qc_summary.json
+
+python3 scripts/12_triplets_pro_listing_aggregieren.py \
+  --input Span-ASTE/data_airbnb/airbnb_aste_triplets_50k_listing_stratified_seed0_qc.csv \
+  --output data/processed/airbnb_aste_listing_aggregation_50k_listing_stratified_seed0.csv \
+  --summary data/processed/airbnb_aste_listing_aggregation_50k_listing_stratified_seed0_summary.json
+```
+
+Ergebnis der 50k-Verarbeitung:
+
+- 50.000 Saetze verarbeitet
+- 34.960 extrahierte ASTE-Triplets
+- 26.315 Triplets nach regelbasierter QC direkt nutzbar
+- 8.070 Triplets weiterhin als `review` markiert
+- 575 Triplets verworfen
+- 9.023 Listings mit mindestens einem nutzbaren Triplet
+- 5.330 Listings mit erfolgreich verknuepften Listing-Merkmalen
+
+Die QC-Regeln wurden nach Sichtung der haeufigsten 50k-`review`-Aspekte
+erweitert. Dadurch werden klare Airbnb-Aspekte wie `rooms`, `transport`,
+`shower`, `amenities`, `living room`, `garden`, `breakfast`, `parking`,
+`terrace`, `train station`, `staff` oder `recommendations` nun auf
+Analyse-Kategorien abgebildet. Namen und diffuse Begriffe bleiben bewusst auf
+`review`, um die Auswertung konservativ zu halten.
+
 ## Vergleich mit Rating, Preis und Lage
 
 Fuer die 1.000er-Strukturprobe wurden Vergleichstabellen und SVG-Grafiken
@@ -545,3 +607,92 @@ python3 scripts/16_listing_sentiment_mit_listings_vergleichen.py \
   --output-dir data/analysis/listing_sentiment_full \
   --min-triplets 3
 ```
+
+Fuer die finale 50k-Auswertung wurde das Vergleichsskript auf die
+listing-stratifizierte Aggregation angewendet:
+
+```bash
+python3 scripts/16_listing_sentiment_mit_listings_vergleichen.py \
+  --input data/processed/airbnb_aste_listing_aggregation_50k_listing_stratified_seed0.csv \
+  --output-dir data/analysis/listing_sentiment_50k_listing_stratified_seed0 \
+  --min-triplets 3
+```
+
+Ausgaben in `data/analysis/listing_sentiment_50k_listing_stratified_seed0/`:
+
+- `korrelationen_sentiment_listing_merkmale.csv`
+- `gruppenvergleich_lage_roomtype.csv`
+- `themen_haeufigkeiten.csv`
+- `grafik_top_themen.svg`
+- `grafik_sentiment_nach_lage.svg`
+- `grafik_rating_vs_sentiment.svg`
+- `listing_sentiment_vergleich_summary.json`
+
+Fuer die Korrelations- und Gruppenvergleiche wurden nur Listings mit mindestens
+3 nutzbaren Triplets betrachtet. Dadurch bleiben 4.753 Listings in der
+Analysegrundlage.
+
+### Zentrale Ergebnisse der 50k-Auswertung
+
+Das aspektbasierte Netto-Sentiment korreliert moderat mit klassischen
+Airbnb-Bewertungen:
+
+| Vergleichsmerkmal | n | Pearson-r mit ASTE-Netto-Sentiment |
+| --- | ---: | ---: |
+| `review_scores_rating` | 2.849 | 0.3325 |
+| `review_scores_value` | 2.849 | 0.2901 |
+| `review_scores_cleanliness` | 2.849 | 0.2355 |
+| `review_scores_location` | 2.849 | 0.1862 |
+| `price` | 2.849 | -0.0084 |
+
+Interpretation: Je positiver die aus Reviewtexten extrahierten Aspekte
+ausfallen, desto hoeher sind tendenziell auch Gesamtbewertung, Value,
+Cleanliness und Location. Der Zusammenhang ist sichtbar, aber nicht perfekt,
+weil Textbewertungen deutlich nuancierter sind als numerische Sternebewertungen.
+Der Preis selbst haengt in dieser Stichprobe praktisch nicht mit dem
+ASTE-Netto-Sentiment zusammen.
+
+Die haeufigsten Themen in den nutzbaren ASTE-Triplets sind:
+
+| Thema | Nennungen | Positive Nennungen | Negative Nennungen |
+| --- | ---: | ---: | ---: |
+| accommodation | 7.880 | 7.469 | 191 |
+| location | 2.800 | 2.697 | 67 |
+| host_communication | 2.417 | 2.290 | 64 |
+| overall_experience | 1.246 | 1.181 | 15 |
+| amenities | 1.148 | 792 | 254 |
+| surroundings_food | 1.056 | 986 | 21 |
+| interior | 976 | 856 | 77 |
+| comfort | 541 | 419 | 74 |
+| transport | 534 | 464 | 16 |
+
+Inhaltlich dominieren also Unterkunft, Lage, Host-Kommunikation, Ausstattung
+und Umgebung. Besonders auffaellig ist, dass `amenities` vergleichsweise viele
+negative Nennungen enthaelt. `noise` kommt seltener vor, ist aber ueberwiegend
+negativ gepraegt. Solche Themen liefern Zusatzinformationen, die in einer
+einzigen Gesamtbewertung nicht sichtbar waeren.
+
+Nach Lagegruppen zeigen sich Unterschiede im durchschnittlichen
+ASTE-Netto-Sentiment, zum Beispiel:
+
+- Neukoelln: 0.8915
+- Pankow: 0.8819
+- Friedrichshain-Kreuzberg: 0.8623
+- Mitte: 0.8285
+- Charlottenburg-Wilmersdorf: 0.8035
+
+Diese Gruppenwerte sollten deskriptiv gelesen werden. Sie zeigen Unterschiede
+in der Stichprobe, belegen aber keine kausalen Effekte der Lage, weil sich
+Listings auch nach Unterkunftstyp, Preis, Reviewanzahl und Gaestestruktur
+unterscheiden.
+
+### Limitationen
+
+- Die Analyse basiert auf einer 50k-Stichprobe, nicht auf allen 1.124.837
+  bereinigten Saetzen.
+- Das verwendete Modell `pretrained_14res` stammt aus einer anderen Domaene und
+  wurde hier auf Airbnb-Reviews angewendet.
+- Die QC ist regelbasiert und konservativ; 8.070 Triplets bleiben fuer manuelle
+  Pruefung markiert.
+- Airbnb-Reviews sind insgesamt stark positiv, wodurch negative Aspekte
+  seltener auftreten und vorsichtig interpretiert werden muessen.
