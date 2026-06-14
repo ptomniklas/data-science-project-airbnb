@@ -110,6 +110,9 @@ class SpanModel(BaseModel):
     save_dir: str
     random_seed: int
     path_config_base: str = "training_config/config.jsonnet"
+    cuda_device: int = -1
+    num_epochs: Optional[int] = None
+    batch_size: Optional[int] = None
 
     def save_temp_data(self, path_in: str, name: str, is_test: bool = False) -> Path:
         path_temp = Path(self.save_dir) / "temp_data" / f"{name}.json"
@@ -132,16 +135,23 @@ class SpanModel(BaseModel):
         weights_dir.mkdir(exist_ok=True, parents=True)
         print(dict(weights_dir=weights_dir))
 
+        params_overrides = dict(
+            random_seed=self.random_seed,
+            numpy_seed=self.random_seed,
+            pytorch_seed=self.random_seed,
+            trainer=dict(cuda_device=self.cuda_device),
+            train_data_path=str(self.save_temp_data(path_train, "train")),
+            validation_data_path=str(self.save_temp_data(path_dev, "dev")),
+            test_data_path=str(self.save_temp_data(path_dev, "dev")),
+        )
+        if self.num_epochs is not None:
+            params_overrides["trainer"]["num_epochs"] = self.num_epochs
+        if self.batch_size is not None:
+            params_overrides["data_loader"] = dict(batch_size=self.batch_size)
+
         params = Params.from_file(
             self.path_config_base,
-            params_overrides=dict(
-                random_seed=self.random_seed,
-                numpy_seed=self.random_seed,
-                pytorch_seed=self.random_seed,
-                train_data_path=str(self.save_temp_data(path_train, "train")),
-                validation_data_path=str(self.save_temp_data(path_dev, "dev")),
-                test_data_path=str(self.save_temp_data(path_dev, "dev")),
-            ),
+            params_overrides=params_overrides,
         )
 
         # Register custom modules
@@ -165,7 +175,7 @@ class SpanModel(BaseModel):
             weights_file="",
             batch_size=1,
             silent=True,
-            cuda_device=0,
+            cuda_device=self.cuda_device,
             use_dataset_reader=True,
             dataset_reader_choice="validation",
             overrides="",
@@ -227,12 +237,24 @@ def run_score(path_pred: str, path_gold: str) -> dict:
     return SpanModel.score(path_pred, path_gold)
 
 
-def run_train(path_train: str, path_dev: str, save_dir: str, random_seed: int):
+def run_train(
+    path_train: str,
+    path_dev: str,
+    save_dir: str,
+    random_seed: int,
+    num_epochs: Optional[int] = None,
+    batch_size: Optional[int] = None,
+):
     print(dict(run_train=locals()))
     if Path(save_dir).exists():
         return
 
-    model = SpanModel(save_dir=save_dir, random_seed=random_seed)
+    model = SpanModel(
+        save_dir=save_dir,
+        random_seed=random_seed,
+        num_epochs=num_epochs,
+        batch_size=batch_size,
+    )
     model.fit(path_train, path_dev)
 
 

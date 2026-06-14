@@ -11,3 +11,12 @@ aste/data/
 models/
 model_outputs/
 outputs/
+
+# Local model/cache artifacts
+.cache/
+bert-base-uncased/
+pretrained/
+
+# Generated Airbnb Span-ASTE inputs, predictions, and exports
+data_airbnb/
+!data_airbnb/.gitkeep
