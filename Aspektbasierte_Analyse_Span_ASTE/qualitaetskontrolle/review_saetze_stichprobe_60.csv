@@ -1,0 +1,61 @@
+qc_id,listing_id,review_id,sentence_id,date,sentence,english_ok,understandable_ok,split_ok,useful_for_aspect,note
+1,25970203,1218017338714773576,6,2024-08-07,Thank you Julian for the nice stay and for responding to our questions when needed <3,ja,ja,ja,ja,"host/communication, stay"
+2,799181725836295737,815028212861083220,1,2023-01-29,This has been one of the best AirBnB experiences in over five years.,ja,ja,ja,ja,overall experience
+3,668696330837337558,1492025872688994937,8,2025-08-20,"Finally, Gia was very flexible about check-in and check-out, and made the beginning and end of our stay much easier.",ja,ja,ja,ja,"check-in/check-out, host"
+4,4564830,1363782442191224012,1,2025-02-24,Great area and fantastic apartment for a group of friends would definitely stay again!,ja,ja,ja,ja,"location, apartment; etwas run-on aber brauchbar"
+5,40584336,645474363209431214,1,2022-06-09,A bit noisy but everything else was great.,ja,ja,ja,ja,"noise, overall"
+6,927890144297186783,1407859723484594854,2,2025-04-26,"after finding the apartment Wich was easy thanks to clear instructions was a little disappointed that the carpet was rolled up and a different bed was in place tho that's nothing to say cuz all in all just a butyfull apartment with amazing surroundings Very enjoyable, neighbors weher also frindly and cool.only a minor disturbance in the afternoon with a local kindergarten so definitely a place to recommend",ja,teilweise,nein,ja,"langer fehlerhafter run-on sentence; apartment, bed, surroundings, noise"
+7,48181556,1360831505488834849,6,2025-02-20,"We actually live in Berlin, but needed to leave our apartment for a few days due to repairs, and I'm so happy we chose this place.",ja,ja,ja,ja,overall/place
+8,34018418,664980253019630086,1,2022-07-06,"Clean, airy, well equipped apartment in the perfect location.",ja,ja,ja,ja,"cleanliness, amenities, location"
+9,8026172,1071617805652961538,1,2024-01-18,Place was nice and cozy.,ja,ja,ja,ja,comfort/place
+10,1977882,697667252561586839,4,2022-08-20,"Wi-fi, AC, clothes washer/dryer all worked well.",ja,ja,ja,ja,"amenities: wifi, AC, washer/dryer"
+11,14829530,1117308480221266414,1,2024-03-21,Everything was good ı had no problems thank you claudius,ja,ja,ja,teilweise,overall; kleines Zeichen-/Grammatikproblem
+12,27226460,527999039223140724,9,2021-12-29,"It’s very big, new, modern, and very equipped also with a washer and dryer.",ja,ja,ja,ja,"size, condition, amenities"
+13,8805561,1216585543174343314,6,2024-08-05,I highly recommend a stay with Katharina!,ja,ja,ja,ja,"overall recommendation, host"
+14,3124110,341152283,1,2018-10-26,"A real gem of a cottage in an Old Berlin resort area, Katrin was an excellent host.",ja,ja,ja,ja,"accommodation, location, host"
+15,13669202,611330211788085319,4,2022-04-23,"The building was very quiet and warm too, and we had everything we needed in the flat.",ja,ja,ja,ja,"noise/quiet, warmth, amenities"
+16,13669087,668605423997632361,1,2022-07-11,The apartment was overall ok.,ja,ja,ja,ja,overall
+17,31385396,699761096440907778,1,2022-08-23,"It was an awesome place, me and my family felt like living en Berlin for two days.",ja,ja,ja,ja,overall/place; kleine Grammatikfehler
+18,23101210,534075141,1,2019-09-22,"Very nice, lots of light, very sylish and cozy.",ja,ja,ja,ja,"light, style, comfort"
+19,43824448,495456046892928267,2,2021-11-14,The location is great and the room is absolutely amazing!,ja,ja,ja,ja,"location, room"
+20,677433898395003666,720780297831629828,1,2022-09-21,Minimal hostel is anything but minimal.,ja,ja,ja,teilweise,overall/hostel name; wenig konkreter Aspekt
+21,44438078,1012153490604410001,3,2023-10-28,Host communication was great- easy self check in details & very helpful!,ja,ja,ja,ja,"communication, self check-in, host"
+22,873230612368758488,946909267715314938,1,2023-07-30,The apartment itself is beautiful and minimal.,ja,ja,ja,ja,"apartment, design/style"
+23,13812209,300055355,2,2018-08-01,Never actually met the host but check in and check out was made very easy.,ja,ja,ja,ja,"check-in/check-out, host"
+24,40663815,1269477387828975276,4,2024-10-17,"Checked in during the stay, answered questions as they came up.",ja,teilweise,teilweise,ja,fragment ohne Subjekt; host communication/helpfulness
+25,18798641,745309016,3,2021-04-04,The neighborhood isn't the best,ja,ja,ja,ja,"neighborhood, negative"
+26,7028955,1203578734077678852,1,2024-07-18,It is hard to describe how magical this apartment’s view is.,ja,ja,ja,ja,view
+27,10130849,596930313,1,2020-01-24,Very nice place and in a good location.,ja,ja,ja,ja,"place, location"
+28,7956833,820885324000743554,3,2023-02-06,Easy to get about from this apartment.,ja,ja,ja,ja,location/accessibility
+29,14218434,163673946,2,2017-06-25,"The flat is beautiful, spacious, stylish, super comfy, clean very quiet (although on the main street).",ja,ja,ja,ja,"apartment, size, style, comfort, cleanliness, quiet"
+30,570776163680896563,641115195413135393,1,2022-06-03,"great accommodation, clean, easy to check in and out, easy to communicate with",ja,ja,ja,ja,"accommodation, cleanliness, check-in/out, communication"
+31,18910942,535993454820522847,3,2022-01-09,Our family thoroughly enjoyed the place and it’s amenities.,ja,ja,ja,ja,"place, amenities"
+32,27049153,1473156943810287798,3,2025-07-25,The location couldn’t be better.,ja,ja,ja,ja,location
+33,1164178830365850569,1231789478072988521,2,2024-08-26,"In fact, the instructions on how to find the flat were super helpful, made our travel from the airport a breeze.",ja,ja,ja,ja,"instructions, transport/access"
+34,1274386,32097403,1,2015-05-13,Christian is awesome host!,ja,ja,ja,ja,host; Grammatik leicht fehlerhaft
+35,29732182,435082492,1,2019-04-09,"Posizione comodissima, ed host super disponibile!",nein,ja,ja,nein,"italienisch; location/host, aber nicht fuer englische Analyse"
+36,878074,242079912,1,2018-03-11,Camilla's place was really immaculate and decorated very nicely.,ja,ja,ja,ja,"cleanliness, decor"
+37,876911337018472668,1091219450768728981,1,2024-02-14,The place is amazing.,ja,ja,ja,ja,overall/place
+38,7905519,1183193874696654845,1,2024-06-20,"Very convenient, well located for access all around Berlin",ja,ja,ja,ja,location/accessibility; Grammatik leicht fehlerhaft
+39,13345985,156844949,1,2017-06-01,I enjoyed my 10-night stay at Christian's house!,ja,ja,ja,ja,"overall stay, host/place"
+40,1399956391866335434,1478182859213105838,3,2025-08-01,Everything is nicely laid out and there is lots of space to move around.,ja,ja,ja,ja,"layout, space"
+41,20943832,459373400,5,2019-05-27,Cons: lots of stairs!,ja,ja,ja,ja,"stairs/accessibility, negative"
+42,24746106,589942959,20,2020-01-07,"Bernd is a wonderful, valued host and we would be honoured if he would have us as his guests again.",ja,ja,ja,ja,host
+43,26952394,850615086243082041,8,2023-03-19,I recommend Me Hien's apartment for short stays.,ja,ja,ja,ja,"recommendation, apartment, short stay"
+44,30080518,662075861879472595,1,2022-07-02,Great location with fantastic access to public transport.,ja,ja,ja,ja,"location, public transport"
+45,41924778,1052106564473136844,14,2023-12-22,I would definitely recommend / visit again!,ja,ja,ja,teilweise,overall recommendation; kein konkreter Aspekt
+46,15616319,1452902868210686878,2,2025-06-27,She gave us recommendations for the local area.,ja,ja,ja,ja,"host, local recommendations"
+47,907870068509041383,973790252326520643,1,2023-09-05,Close to the center.,ja,ja,ja,ja,location
+48,14424131,426521054161595650,2,2021-08-11,"The bed is very comfortable, area central and green, and Jan welcoming.",ja,ja,ja,ja,"bed comfort, location/area, host"
+49,38967379,1446265256114290268,2,2025-06-18,"The apartment is in a typical, quiet courtyard in Kreuzberg.",ja,ja,ja,ja,"apartment, quiet, location/neighborhood"
+50,13507504,346098183,6,2018-11-07,Parking in the street is free.,ja,ja,ja,ja,parking
+51,11376761,295693175,11,2018-07-24,There was no toilet paper upon arriving but it’s easy to pick up essentials as there are plenty of shops and restaurants all around.,ja,ja,ja,ja,"bathroom/toilet paper, shops/restaurants nearby"
+52,564240199474810836,604795877238472774,2,2022-04-14,"It is spotlessly clean, comfortable beds, good shower.",ja,ja,ja,ja,"cleanliness, bed comfort, shower"
+53,3094376,174515742,4,2017-07-26,Everything was well taken care of by our host and we would return in a heartbeat.,ja,ja,ja,ja,"host, overall return intention"
+54,4114966,497140214,3,2019-07-28,The home itself so comfortable and the decor was super fun and interesting.,ja,ja,ja,ja,"comfort, decor"
+55,45732707,1432541996761634207,2,2025-05-30,"The room was really clean and pretty, but it is a hotel, not a flat.",ja,ja,ja,ja,"room cleanliness, accommodation type"
+56,27018634,809288101253019930,4,2023-01-21,"Limited kitchen- fine if you just want microwave meals, does also have a 2 hob electric.",ja,ja,ja,ja,"kitchen, cooking amenities, limitation"
+57,40769909,588310536,5,2020-01-04,"Though, not a big deal.",ja,ja,ja,nein,zu allgemein; Kontext fehlt
+58,18659334,197296209,2,2017-09-25,"Spacious and very clean appartment, Just what you need!",ja,ja,ja,ja,"space, cleanliness; Tippfehler appartment"
+59,680999,50977182,2,2015-10-16,"If I ever visit Berlin again, I will choose Howy's place one more time.",ja,ja,ja,teilweise,overall return intention; wenig konkreter Aspekt
+60,867904919279123092,1507950746042915265,3,2025-09-11,"The flat felt spacious and was quiet, the kitchen had everything we needed.",ja,ja,ja,ja,"space, quiet, kitchen amenities"

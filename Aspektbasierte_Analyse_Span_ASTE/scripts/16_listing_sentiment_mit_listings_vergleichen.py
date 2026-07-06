@@ -85,6 +85,20 @@ def write_csv(path: Path, rows: list[dict[str, object]], fieldnames: list[str]) 
         writer.writerows(rows)
 
 
+def format_chart_value(value: float) -> str:
+    if abs(value - round(value)) < 1e-9:
+        return f"{int(round(value)):,}".replace(",", ".")
+    return f"{value:.3f}".rstrip("0").rstrip(".")
+
+
+def is_missing_group_value(value: object) -> bool:
+    if value is None:
+        return True
+    if isinstance(value, float) and math.isnan(value):
+        return True
+    return str(value).strip().lower() in {"", "nan", "none"}
+
+
 def svg_bar_chart(
     path: Path,
     title: str,
@@ -128,7 +142,7 @@ def svg_bar_chart(
         )
         parts.append(
             f'<text x="{margin_left + bar_width + 6:.1f}" y="{y + bar_height * 0.68:.1f}" '
-            f'font-family="Arial" font-size="12" fill="#222">{value:.3g}</text>'
+            f'font-family="Arial" font-size="12" fill="#222">{format_chart_value(value)}</text>'
         )
 
     parts.append("</svg>\n")
@@ -301,6 +315,7 @@ def analyze(args: argparse.Namespace) -> dict[str, object]:
         row
         for row in group_rows
         if row["group_column"] == "neighbourhood_group_cleansed"
+        and not is_missing_group_value(row["group_value"])
         and safe_float(row["mean_net_sentiment"]) is not None
     ][: args.top_n]
     if group_plot_rows:
@@ -356,18 +371,18 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--input",
-        default="data/processed/airbnb_aste_listing_aggregation_1000_sample.csv",
+        default="Ergebnisse_50kStichprobe/listing_auswertung_50k.csv",
         help="Listing-level ASTE aggregation CSV.",
     )
     parser.add_argument(
         "--output-dir",
-        default="data/analysis/listing_sentiment_1000_sample",
+        default="Ergebnisse_50kStichprobe/vergleich_rating_preis_lage",
         help="Directory for comparison tables and SVG charts.",
     )
     parser.add_argument(
         "--min-triplets",
         type=int,
-        default=1,
+        default=3,
         help="Minimum triplets required for listing-level comparison.",
     )
     parser.add_argument("--top-n", type=int, default=12)

@@ -94,7 +94,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--input",
-        default="data/processed/reviews_english_sentences_clean.csv",
+        default="zwischenprodukte/reviews_english_sentences_clean.csv",
         help="Clean sentence-level review CSV.",
     )
     parser.add_argument(

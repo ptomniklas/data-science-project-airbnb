@@ -179,22 +179,22 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--input",
-        default="data/processed/airbnb_aste_triplets_1000_ergaenzt_flat.csv",
+        default="zwischenprodukte/airbnb_aste_triplets_1000_ergaenzt_flat.csv",
         help="Triplet-level CSV.",
     )
     parser.add_argument(
         "--listings",
-        default="listings_clean.csv",
+        default="../listings_clean.csv",
         help="Listing feature table with an id column.",
     )
     parser.add_argument(
         "--output",
-        default="data/processed/airbnb_aste_listing_aggregation_1000_sample.csv",
+        default="zwischenprodukte/airbnb_aste_listing_aggregation_1000_sample.csv",
         help="Listing-level output CSV.",
     )
     parser.add_argument(
         "--summary",
-        default="data/processed/airbnb_aste_listing_aggregation_1000_sample_summary.json",
+        default="zwischenprodukte/airbnb_aste_listing_aggregation_1000_sample_summary.json",
         help="Summary JSON to write.",
     )
     parser.add_argument("--top-n", type=int, default=5)

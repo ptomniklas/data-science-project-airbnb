@@ -234,17 +234,17 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Create an AI-reviewed copy of the 450 split.")
     parser.add_argument(
         "--input",
-        default="data/annotations/span_aste_gold_review_450_split.csv",
+        default="annotationen/span_aste_gold_review_450_split.csv",
         help="Original 450 split CSV.",
     )
     parser.add_argument(
         "--output",
-        default="data/annotations/span_aste_gold_review_450_split_ki_geprueft.csv",
+        default="annotationen/span_aste_gold_review_450_final.csv",
         help="AI-reviewed output CSV.",
     )
     parser.add_argument(
         "--summary",
-        default="data/annotations/span_aste_gold_review_450_split_ki_geprueft_summary.json",
+        default="annotationen/span_aste_gold_review_450_final_summary.json",
         help="Summary JSON to write.",
     )
     return parser.parse_args()

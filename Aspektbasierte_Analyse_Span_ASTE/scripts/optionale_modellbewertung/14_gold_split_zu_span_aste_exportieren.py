@@ -119,22 +119,22 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--input",
-        default="data/annotations/span_aste_gold_review_450_split_ki_geprueft.csv",
+        default="annotationen/span_aste_gold_review_450_final.csv",
         help="Reviewed split CSV with token spans.",
     )
     parser.add_argument(
         "--output-dir",
-        default="Span-ASTE/data_airbnb/gold_review_450_ki_geprueft",
+        default="Span-ASTE/data_airbnb/gold_review_450_final",
         help="Output directory for train/dev/test files.",
     )
     parser.add_argument(
         "--prefix",
-        default="airbnb_gold_450_ki_geprueft",
+        default="airbnb_gold_450_final",
         help="Output filename prefix.",
     )
     parser.add_argument(
         "--summary",
-        default="data/annotations/span_aste_gold_review_450_split_ki_geprueft_export_summary.json",
+        default="annotationen/span_aste_gold_review_450_final_export_summary.json",
         help="Summary JSON to write.",
     )
     return parser.parse_args()

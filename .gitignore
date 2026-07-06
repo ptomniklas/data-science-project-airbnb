@@ -3,15 +3,14 @@
 __pycache__/
 .ipynb_checkpoints/
 .DS_Store.venv/
-Span-ASTE/.venv/
+Aspektbasierte_Analyse_Span_ASTE/Span-ASTE/.venv/
 __pycache__/
 .DS_Store
 
 # Generated Airbnb analysis data and reports
-data/processed/
-data/analysis/
-data/annotations/*.csv
-data/annotations/*.json
+Aspektbasierte_Analyse_Span_ASTE/zwischenprodukte/
+Aspektbasierte_Analyse_Span_ASTE/annotationen/*.csv
+Aspektbasierte_Analyse_Span_ASTE/annotationen/*.json
 
 # Keep human-readable annotation docs versionable
-!data/annotations/*.md
+!Aspektbasierte_Analyse_Span_ASTE/annotationen/*.md

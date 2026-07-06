@@ -200,12 +200,12 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--output",
-        default="data/annotations/span_aste_pilot_annotation_50.csv",
+        default="annotationen/span_aste_pilot_annotation_50.csv",
         help="Annotation CSV to write.",
     )
     parser.add_argument(
         "--summary",
-        default="data/annotations/span_aste_pilot_annotation_50_summary.json",
+        default="annotationen/span_aste_pilot_annotation_50_summary.json",
         help="Summary JSON to write.",
     )
     parser.add_argument("--sample-size", type=int, default=50)

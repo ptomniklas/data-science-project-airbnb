@@ -247,12 +247,12 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Filter Airbnb reviews to clean English sentence-level rows."
     )
-    parser.add_argument("--input", default="reviews.csv.gz")
+    parser.add_argument("--input", default="../reviews.csv.gz")
     parser.add_argument(
-        "--output", default="data/processed/reviews_english_sentences_clean.csv"
+        "--output", default="zwischenprodukte/reviews_english_sentences_clean.csv"
     )
     parser.add_argument(
-        "--summary", default="data/processed/reviews_english_sentences_summary.json"
+        "--summary", default="zwischenprodukte/reviews_english_sentences_summary.json"
     )
     parser.add_argument("--min-words", type=int, default=4)
     parser.add_argument("--min-chars", type=int, default=20)

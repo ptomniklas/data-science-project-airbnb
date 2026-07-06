@@ -268,17 +268,17 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--input",
-        default="data/annotations/span_aste_annotation_1000_ergaenzt.csv",
+        default="annotationen/span_aste_annotation_1000_ergaenzt.csv",
         help="Sentence-level annotation CSV with completed candidate labels.",
     )
     parser.add_argument(
         "--output",
-        default="data/annotations/span_aste_gold_review_450_split.csv",
+        default="annotationen/span_aste_gold_review_450_split.csv",
         help="Review-ready 450 sentence split CSV.",
     )
     parser.add_argument(
         "--summary",
-        default="data/annotations/span_aste_gold_review_450_split_summary.json",
+        default="annotationen/span_aste_gold_review_450_split_summary.json",
         help="Summary JSON to write.",
     )
     parser.add_argument(

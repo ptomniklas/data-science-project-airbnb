@@ -1,0 +1,6 @@
+comparison,n,pearson_r_with_sentiment_net_score
+price,2849,-0.0084
+review_scores_rating,2849,0.3325
+review_scores_cleanliness,2849,0.2355
+review_scores_location,2849,0.1862
+review_scores_value,2849,0.2901

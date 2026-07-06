@@ -271,22 +271,22 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--input",
-        default="data/annotations/span_aste_annotation_1000_ergaenzt.csv",
+        default="annotationen/span_aste_annotation_1000_ergaenzt.csv",
         help="Completed sentence-level annotation CSV.",
     )
     parser.add_argument(
         "--output",
-        default="data/processed/airbnb_aste_triplets_1000_ergaenzt_flat.csv",
+        default="zwischenprodukte/airbnb_aste_triplets_1000_ergaenzt_flat.csv",
         help="Triplet-level CSV to write.",
     )
     parser.add_argument(
         "--qc-sample-output",
-        default="data/processed/airbnb_aste_annotation_100_qc_stichprobe.csv",
+        default="qualitaetskontrolle/annotationen_stichprobe_100.csv",
         help="Random sentence-level sample for manual annotation QC.",
     )
     parser.add_argument(
         "--summary",
-        default="data/processed/airbnb_aste_triplets_1000_ergaenzt_flat_summary.json",
+        default="zwischenprodukte/airbnb_aste_triplets_1000_ergaenzt_flat_summary.json",
         help="Summary JSON to write.",
     )
     parser.add_argument(

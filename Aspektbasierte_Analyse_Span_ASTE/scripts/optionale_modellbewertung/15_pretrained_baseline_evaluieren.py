@@ -167,15 +167,15 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--gold",
         default=(
-            "Span-ASTE/data_airbnb/gold_review_450_ki_geprueft/"
-            "airbnb_gold_450_ki_geprueft_test.txt"
+            "Span-ASTE/data_airbnb/gold_review_450_final/"
+            "airbnb_gold_450_final_test.txt"
         ),
         help="Span-ASTE gold/silver test file.",
     )
     parser.add_argument(
         "--pred",
         default=(
-            "Span-ASTE/data_airbnb/gold_review_450_ki_geprueft/"
+            "Span-ASTE/data_airbnb/gold_review_450_final/"
             "pretrained_14res_test_pred.txt"
         ),
         help="Span-ASTE prediction file.",
@@ -183,14 +183,14 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--output",
         default=(
-            "data/annotations/pretrained_14res_ki_geprueft_test_evaluation.csv"
+            "annotationen/pretrained_14res_test_evaluation.csv"
         ),
         help="Sentence-level evaluation CSV.",
     )
     parser.add_argument(
         "--summary",
         default=(
-            "data/annotations/pretrained_14res_ki_geprueft_test_evaluation_summary.json"
+            "annotationen/pretrained_14res_test_evaluation_summary.json"
         ),
         help="Evaluation summary JSON.",
     )
